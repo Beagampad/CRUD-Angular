@@ -1,0 +1,70 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="page-header">
+                <h2>Modificación datos usuario</h2>
+            </div>
+          
+            <form id="formularioModificacion" [formGroup]="angForm" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label  class="font-weight-bold" for="name">Nombre de Usuario</label>
+                        <input type="text" class="form-control" formControlName="username" #username value="{{user[0].username}}">
+                    </div>
+                    <div *ngIf="angForm.controls['username'].invalid && (angForm.controls['username'].dirty || angForm.controls['username'].touched)" class="alert alert-danger">
+                        <div *ngIf="angForm.controls['username'].errors.required"> El username es obligatorio</div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="font-weight-bold" for="name">Nombre</label>
+                        <input id="nombre" type="text" class="form-control" formControlName="nombre" #nombre value="{{user[0].name}}">
+                    </div>
+                    <div *ngIf="angForm.controls['nombre'].invalid && (angForm.controls['nombre'].dirty || angForm.controls['nombre'].touched)" class="alert alert-danger">
+                        <div *ngIf="angForm.controls['nombre'].errors.required"> El nombre es obligatorio</div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="font-weight-bold" for="phone">Apellidos</label>
+                        <input id="apellidos" type="text" class="form-control" formControlName="apellidos" #apellidos value="{{user[0].apellidos}}">
+                    </div>
+                    <div *ngIf="angForm.controls['apellidos'].invalid && (angForm.controls['apellidos'].dirty || angForm.controls['apellidos'].touched)" class="alert alert-danger">
+                        <div *ngIf="angForm.controls['apellidos'].errors.required"> Los apellidos son obligatorios</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="date">Edad (años)</label>
+                       <input id="fecha" type="text" class="form-control" formControlName="edad" #edad value="{{user[0].edad}}">
+                    </div>
+                    <div *ngIf="angForm.controls['edad'].invalid && (angForm.controls['edad'].dirty || angForm.controls['edad'].touched)" class="alert alert-danger">
+                        <div *ngIf="angForm.controls['edad'].errors.required"> La edad es obligatorio</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="email">Email</label>
+                        <input id="email" type="text" class="form-control" formControlName="email" #email value="{{user[0].email}}">
+                    </div>
+                    <div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)" class="alert alert-danger">
+                        <div *ngIf="angForm.controls['email'].errors.required"> El mail es obligatorio</div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="font-weight-bold" for="password">Password</label>
+                        <input type="password" class="form-control" id="password" formControlName="password" #password value={{user[0].password}}  placeholder="Password">
+                    </div>
+                    <div *ngIf="angForm.controls['password'].invalid && (angForm.controls['password'].dirty || angForm.controls['password'].touched)" class="alert alert-danger">
+                        <div *ngIf="angForm.controls['password'].errors.required"> El password es obligatorio</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="activo" class="font-weight-bold">Activo</label>
+                        <select class="form-control" formControlName="activo" #activo id="activo">
+                          <option selected>{{user[0].activo}}</option>
+                          <option>Si</option>
+                          <option>No</option>
+                        </select>
+                    </div>
+                    <div *ngIf="angForm.controls['activo'].invalid && (angForm.controls['activo'].dirty || angForm.controls['activo'].touched)" class="alert alert-danger">
+                            <div *ngIf="angForm.controls['activo'].errors.required"> El estado es obligatorio</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button  class="btn btn-primary btn-lg boton-modificar" (click)="modifyUser(username.value, nombre.value, apellidos.value, edad.value, email.value, password.value, activo.value)" type="button">Modificar</button>
+                    </div>
+                    
+                </form>
+        </div>
+    </div>        
+</div>

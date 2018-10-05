@@ -1,0 +1,11 @@
+#delete{
+    cursor: pointer;
+    color: #e21616;
+    margin-right: 20px;
+}
+thead{
+    background-color: #c7e8c7;
+}
+#doc{
+    margin-right: 5px;
+}

@@ -1,0 +1,49 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<div class="container mt-5">
+<div class="row">
+<div class="col-md-12">
+  <div class="clearfix mb-3">
+      <h2 class="float-left">Gestión de Usuarios</h2>
+      <a routerLink="/add" class="btn btn-dark float-right">Añadir nuevo usuario</a>
+      <a id="doc" href="http://localhost:3000/doc/" target="_blank" class="btn btn-dark float-right">Documentación API</a>
+  </div>
+  <table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>UserName</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+            <th>Activo</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="lista-user" *ngFor="let user of users">
+
+      <tr>
+        <td>{{user.iduser}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.apellidos}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.activo}}</td>
+        <td id={{user.iduser}}>
+
+        <a (click)= "deleteUser(user.iduser)">
+          <i id="delete" title="Eliminar" class="material-icons">cancel</i>
+        </a>
+        <a routerLink="/detalle/{{user.iduser}}">
+          <i title="Editar" class="material-icons">create</i>
+        </a>
+        </td>
+      </tr>
+
+      <tr >
+      </tr>
+    </tbody>
+  </table>
+</div> 
+</div>
+</div>

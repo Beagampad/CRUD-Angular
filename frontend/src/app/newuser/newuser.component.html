@@ -1,0 +1,68 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="page-header">
+                <h2>Añadir usuario</h2>
+            </div>
+      <form id="formularioContacto" [formGroup]="angForm" enctype="multipart/form-data">
+          <div class="form-group">
+              <label for="phone">Username</label>
+              <input formControlName="username" #username type="text" class="form-control">
+          </div>
+          <div *ngIf="angForm.controls['username'].invalid && (angForm.controls['username'].dirty || angForm.controls['username'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['username'].errors.required"> El username es obligatorio</div>
+          </div>
+          <div class="form-group">
+              <label for="name">Nombre</label>
+              <input id="nombre" formControlName="nombre" #nombre type="text" class="form-control">
+          </div>
+          <div *ngIf="angForm.controls['nombre'].invalid && (angForm.controls['nombre'].dirty || angForm.controls['nombre'].touched)" class="alert alert-danger">
+              <div *ngIf="angForm.controls['nombre'].errors.required"> El nombre es obligatorio</div>
+          </div>
+          <div class="form-group">
+              <label for="apellidos">Apellidos</label>
+              <input id="apellidos" formControlName="apellidos" #apellidos type="text" class="form-control">
+          </div>
+          <div *ngIf="angForm.controls['apellidos'].invalid && (angForm.controls['apellidos'].dirty || angForm.controls['apellidos'].touched)" class="alert alert-danger">
+              <div *ngIf="angForm.controls['apellidos'].errors.required"> Los apellidos son obligatorios</div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Edad</label>
+            <input  type="text" formControlName="edad" #edad class="form-control" id="edad"  placeholder="edad">
+          </div>
+          <div *ngIf="angForm.controls['edad'].invalid && (angForm.controls['edad'].dirty || angForm.controls['edad'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['edad'].errors.required"> La edad es obligatorio</div>
+          </div>
+          <div class="form-group">
+              <label for="email">Email</label>
+              <input id="mail" type="text" class="form-control" formControlName="email" #email>
+          </div>
+          <div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)" class="alert alert-danger">
+              <div *ngIf="angForm.controls['email'].errors.required"> El mail es obligatorio</div>
+          </div>
+          <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" formControlName="password" #password id="password"  placeholder="Password">
+          </div>
+            <div *ngIf="angForm.controls['password'].invalid && (angForm.controls['password'].dirty || angForm.controls['password'].touched)" class="alert alert-danger">
+              <div *ngIf="angForm.controls['password'].errors.required"> El password es obligatorio</div>
+            </div>
+            <div class="form-group">
+          <label for="exampleFormControlSelect1">Activo</label>
+            <select class="form-control" formControlName="activo" #activo id="activo">
+                <option selected>Si</option>
+                <option>No</option>
+            </select>
+          </div>
+          <div *ngIf="angForm.controls['activo'].invalid && (angForm.controls['activo'].dirty || angForm.controls['activo'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['activo'].errors.required"> El estado es obligatorio</div>
+          </div>
+          <div class="form-group">
+                <button id="boton-registro" type="button" (click)="createUser(username.value, nombre.value, apellidos.value, edad.value, email.value, password.value, activo.value)" class="btn btn-primary btn-lg btn-acceso" data-target="#exampleModal">Crear</button>
+          </div>
+      </form>
+
+    </div>
+  </div>        
+</div>
+
